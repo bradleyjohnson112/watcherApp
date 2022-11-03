@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watcher | Login</title>
+    <link rel="stylesheet" href="../static/stylesheets/login.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="content-wrapper">
+        <div class="form">
+          <form action="/login" method="POST">
+            <div class="form-group">
+              <label for="email">email</label>
+              <input type="text" name="email" id="email" />
+            </div>
+            <div class="form-group">
+              <label for="password">password</label>
+              <input type="password" name="password" id="password" />
+            </div>
+            <div class="form-group">
+              <button type="submit">login</button>
+            </div>
+            <a href="/register">register</a>
+            <% if (err) { %>
+            <p><%= err %></p>
+            <% } %>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

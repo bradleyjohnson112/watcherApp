@@ -1,0 +1,28 @@
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watcher | Search Shows</title>
+  <link rel="stylesheet" href="../static/stylesheets/nav.css">
+  <link rel="stylesheet" href="../static/stylesheets/search.css">
+  <script
+      src="https://kit.fontawesome.com/f2634cfbed.js"
+      crossorigin="anonymous"
+    ></script>
+</head>
+
+<body>
+  <div class="container">
+    <%- include("nav.ejs"); %>
+    <div class="content">
+      <div class="search">
+        <input type="text" id="search-input" />
+        <button id="search-btn">go</button>
+      </div>
+      <ul id="results-list"></ul>
+    </div>
+  </div>
+  <script type="application/javascript" src="../static/javascripts/search.js"></script>
+</body>
+
+</html>

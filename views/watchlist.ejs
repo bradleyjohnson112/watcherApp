@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watcher | My Watchlist</title>
+    <link rel="stylesheet" href="../static/stylesheets/nav.css" />
+    <link rel="stylesheet" href="../static/stylesheets/watchlist.css" />
+    <script
+      src="https://kit.fontawesome.com/f2634cfbed.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <%- include("nav.ejs"); %>
+      <div class="content">
+        <ul id="shows-info">
+          <% shows.forEach(show => { %>
+          <li>
+            <img src="<%= show.image.medium %>" alt="show poster" />
+            <div class="show-info">
+              <span class="show-name"><%= show.name %></span>
+              <span class="show-status"
+                >Status: 
+                <% if (show.status == "Running") { %>
+                <span class="running"><%= show.status.toUpperCase() %></span>
+                <% } else { %>
+                  <span class="ended"><%= show.status.toUpperCase() %></span>
+                <% } %>
+              </span>
+              <% if (show._links.nextepisode) { %>
+              <span class="next-episode"
+                >Next Episode: <%= show._links.nextepisode.name %></span
+              >
+              <span class="airtime"
+                >Airing: <%= show._links.nextepisode.airdate %> <%=
+                show._links.nextepisode.airtime %></span
+              >
+              <% } else { %>
+              <span class="next-episode"
+                >Last Episode: <%= show._links.previousepisode.name %></span
+              >
+              <span class="airtime"
+                >Airing: <%= show._links.previousepisode.airdate %> <%=
+                show._links.previousepisode.airtime %></span
+              >
+              <% } %>
+              <a href="/shows/remove/<%= show.id %>">remove</a>
+            </div>
+          </li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+    <script
+      type="application/javascript"
+      src="../static/javascripts/watchlist.js"
+    ></script>
+  </body>
+</html>

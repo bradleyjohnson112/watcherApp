@@ -1,0 +1,247 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: #d9534f;
+  color: rgb(41, 43, 44);
+  font-size: 16px;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+nav {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+}
+
+nav a {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+nav i {
+  font-size: 1.5rem;
+  color: #292b2c;
+}
+
+button {
+  display: block;
+  padding: 0.75rem; 
+  font-size: 1.3rem;
+  text-transform: capitalize;
+  background-color: #d9534f;
+  border: none;
+  border: 1px solid #ae423f;
+}
+
+.content {
+  width: 100%;
+  height: 90%;
+  text-transform: capitalize;
+}
+
+.content ul {
+  list-style-type: none;
+  background-color: #ae423f;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+.content ul li {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  justify-content: space-around;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 1.5rem 1.3rem;
+  border-radius: 0.75rem;
+}
+
+.content ul li img {
+  width: 10rem;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.content .show-info {
+  width: 50%;
+}
+
+.content .show-info span {
+  display: block;
+}
+
+.show-info .show-name {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.show-info .show-status {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.show-info .show-status span {
+  display: inline-block;
+  font-weight: 600;
+}
+
+.show-status .running {
+  color: #5cb85c;
+}
+
+.show-status .ended {
+
+}
+
+.show-info .next-episode {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.show-info .airtime {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.show-info a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5rem; 
+  font-size: 1rem;
+  text-transform: capitalize;
+  background-color: #0275d8;
+  border: none;
+  border: 1px solid #292b2c;
+  color: #f7f7f7;
+}
+
+@media screen and (max-width: 767px) {
+  .content ul li {
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1253px) {
+  .content ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 2.3rem;
+  }
+
+  .content ul li {
+  }
+
+  .content ul li img {
+    width: 10rem;
+    height: auto;
+  }
+
+  .content .show-info {
+  }
+
+  .content .show-info span {
+  }
+
+  .show-info .show-name {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .show-info .show-status {
+    font-size: 1.150rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .show-info .show-status span {
+  }
+
+  .show-info .next-episode {
+    font-size: 1.150rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .show-info .airtime {
+    font-size: 1.150rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .show-info a {
+    font-size: 1.150rem;
+  }
+}
+
+@media screen and (min-width: 1254px) {
+  .content ul {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .content ul li {
+  }
+
+  .content ul li img {
+    width: 12rem;
+    height: auto;
+  }
+
+  .content .show-info {
+
+  }
+
+  .content .show-info span {
+  }
+
+  .show-info .show-name {
+    font-size: 1.5rem;
+    margin-bottom: 1.175rem;
+  }
+
+  .show-info .show-status {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .show-info .show-status span {
+  }
+
+  .show-info .next-episode {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .show-info .airtime {
+    font-size: 1.2rem;
+    margin-bottom: 1.175rem;
+  }
+
+  .show-info a {
+    font-size: 1.2rem;
+  }
+}
