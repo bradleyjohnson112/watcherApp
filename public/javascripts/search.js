@@ -3,8 +3,6 @@ const searchBtn = document.getElementById("search-btn");
 const resultsList = document.getElementById("results-list");
 
 searchBtn.addEventListener("click", (e) => {
-  console.log("searchbtn click");
-  console.log(searchInput.value);
   searchShows(searchInput.value);
 });
 
@@ -21,7 +19,6 @@ async function searchShows(query) {
     };
   });
 
-  console.log(results);
   renderShows(results);
 }
 

@@ -8,8 +8,7 @@ html, body {
   background-color: #d9534f;
   color: rgb(41, 43, 44);
   font-size: 16px;
-  width: 100vw;
-  height: 100vh;
+  height: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -50,6 +49,11 @@ button {
   background-color: #d9534f;
   border: none;
   border: 1px solid #ae423f;
+  color: #292b2c;
+}
+
+button:disabled {
+  color: rgba(41, 43, 44, 0);
 }
 
 .content {

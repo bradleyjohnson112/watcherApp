@@ -24,28 +24,27 @@
             <div class="show-info">
               <span class="show-name"><%= show.name %></span>
               <span class="show-status"
-                >Status: 
-                <% if (show.status == "Running") { %>
+                >Status: <% if (show.status == "Running") { %>
                 <span class="running"><%= show.status.toUpperCase() %></span>
                 <% } else { %>
-                  <span class="ended"><%= show.status.toUpperCase() %></span>
+                <span class="ended"><%= show.status.toUpperCase() %></span>
                 <% } %>
               </span>
               <% if (show._links.nextepisode) { %>
               <span class="next-episode"
                 >Next Episode: <%= show._links.nextepisode.name %></span
               >
-              <span class="airtime"
-                >Airing: <%= show._links.nextepisode.airdate %> <%=
-                show._links.nextepisode.airtime %></span
+              <span class="airtime" id="airtime"
+                >Airing:
+                <span><%= show._links.nextepisode.airstamp %></span></span
               >
               <% } else { %>
               <span class="next-episode"
                 >Last Episode: <%= show._links.previousepisode.name %></span
               >
-              <span class="airtime"
-                >Airing: <%= show._links.previousepisode.airdate %> <%=
-                show._links.previousepisode.airtime %></span
+              <span class="airtime" id="airtime"
+                >Airing:
+                <span><%= show._links.previousepisode.airstamp %></span></span
               >
               <% } %>
               <a href="/shows/remove/<%= show.id %>">remove</a>
