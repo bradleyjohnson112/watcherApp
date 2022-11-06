@@ -69,7 +69,7 @@ const createShow = async (req, res) => {
     console.log(apiId);
 
     // Check if show already exists
-    if (await Show.findOne({ apiId: apiId })) {
+    if (await Show.findOne({ apiId: apiId, user: req.user._id })) {
       console.log("show already added");
       res.send("show already added");
     } else {
@@ -101,7 +101,7 @@ const deleteShow = async (req, res) => {
   console.log(user.shows);
 
   try {
-    const show = await Show.findOne({ apiId: apiId });
+    const show = await Show.findOne({ apiId: apiId, user: req.user._id });
 
     console.log(show._id);
     user.shows = user.shows.filter(
