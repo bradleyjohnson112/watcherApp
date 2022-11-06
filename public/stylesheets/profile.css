@@ -88,6 +88,10 @@ button {
   color: #292b2c;
 }
 
+.content ul li p a {
+  color: #0275d8;
+}
+
 @media screen and (max-width: 767px) {
 }
 
