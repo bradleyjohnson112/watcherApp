@@ -8,13 +8,10 @@ html, body {
   background-color: #d9534f;
   color: rgb(41, 43, 44);
   font-size: 16px;
-  height: 100%;
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.container {
   width: 100%;
   height: 100%;
+  overflow-y: auto;
 }
 
 nav {
@@ -23,10 +20,12 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: fixed;
-  bottom: 0;
+  height: 4.2rem;
+  background-color: #d9534f;
   width: 100%;
-  height: 10%;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 
 nav a {
@@ -41,67 +40,78 @@ nav i {
 }
 
 button {
-  display: block;
+  display: inline-block;
   padding: 0.75rem; 
   font-size: 1.3rem;
   text-transform: capitalize;
-  width: 20%;
   background-color: #d9534f;
   border: none;
   border: 1px solid #ae423f;
   color: #292b2c;
 }
 
-button:disabled {
-  color: rgba(41, 43, 44, 0);
-}
-
-.content {
+section {
   width: 100%;
-  height: 90%;
-  background-color: #ae423f;
-  overflow-y: auto;
+  height: 100%;
   text-transform: capitalize;
+  background-color: #ae423f;
+  margin-top: 4.2rem;
 }
 
-.content .search {
+section .search {
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: stretch;
+  padding: 1rem;
 }
 
-.content .search input {
-  display: inline-block;
+section .search input {
+  width: 80%;
   font-size: 1.2rem;
   padding: 0.75rem 1.25rem 0.75rem 2.5rem;
   border: none;
   outline: none;
   background-color: #d9534f;
-  width: 80%;
 }
 
-.content .search button {
-  height: 100%;
+section .search button {
   background-color: #c34b47;
+  width: 20%;
 }
 
-.content ul {
+section ul {
+  width: 100%;
   list-style-type: none;
-  padding: 0;
-  margin: 0;
+  background-color: #ae423f;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.content ul li {
+section ul li {
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
-.content ul li span {
-  display: inline-block;
-  padding: 1.25rem; 
-  font-size: 1.3rem;
+section ul li span {
+  overflow-wrap: break-word;
+  width: 80%;
+  display: block;
+  padding-right: 1rem; 
+  font-size: 1.2rem;
 }
 
-.content ul li button {
+section ul li button {
   background-color: #c34b47;
+  width: 20%;
+}
+
+section ul li button:disabled {
+  color: rgba(41, 43, 44, 0.329);
 }

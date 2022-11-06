@@ -12,24 +12,22 @@
     <link rel="stylesheet" href="../static/stylesheets/profile.css" />
   </head>
   <body>
-    <div class="container">
-      <%- include("nav.ejs"); %>
-      <div class="content">
-        <ul id="shows-list">
-          <li>
-            <a href="/logout"
-              ><span>Logout</span
-              ><i class="fa-solid fa-arrow-right-from-bracket"></i
-            ></a>
-          </li>
-          <li>
-            <p>
-              Show data supplied by
-              <a href="https://www.tvmaze.com/" target="_blank">Tv Maze</a>
-            </p>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <%- include("nav.ejs"); %>
+    <section>
+      <ul id="shows-list">
+        <li>
+          <a href="/logout"
+            ><span>Logout</span
+            ><i class="fa-solid fa-arrow-right-from-bracket"></i
+          ></a>
+        </li>
+        <li>
+          <p>
+            Show data supplied by
+            <a href="https://www.tvmaze.com/" target="_blank">Tv Maze</a>
+          </p>
+        </li>
+      </ul>
+    </section>
   </body>
 </html>

@@ -14,9 +14,8 @@
   </head>
 
   <body>
-    <div class="container">
       <%- include("nav.ejs"); %>
-      <div class="content">
+      <section>
         <ul id="shows-info">
           <% shows.forEach(show => { %>
           <li>
@@ -52,8 +51,7 @@
           </li>
           <% }) %>
         </ul>
-      </div>
-    </div>
+      </section>
     <script
       type="application/javascript"
       src="../static/javascripts/watchlist.js"
