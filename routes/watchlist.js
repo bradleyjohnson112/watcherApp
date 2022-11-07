@@ -5,9 +5,10 @@ const {
   deleteShow,
 } = require("../controllers/showsController");
 const { protectRoute } = require("../auth/protect");
-// const { tasksView } = require("../controllers/dashboardController");
 
 const router = express.Router();
+
+router.use(protectRoute);
 
 router.get("/watchlist", watchlistView);
 router.get("/shows/remove/:id", deleteShow);
