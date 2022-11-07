@@ -40,6 +40,11 @@ html, body {
   border: 2px solid #292b2c;
   border-radius: 4px;
   outline: none;
+  font-size: 1rem;
+}
+
+form {
+  font-size: 16px;
 }
 
 .form button {
