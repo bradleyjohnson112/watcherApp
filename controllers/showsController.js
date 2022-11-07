@@ -65,12 +65,9 @@ const createShow = async (req, res) => {
 
     // Get show
     const { title, apiId } = req.body;
-    console.log(title);
-    console.log(apiId);
 
     // Check if show already exists
     if (await Show.findOne({ apiId: apiId, user: req.user._id })) {
-      console.log("show already added");
       res.send("show already added");
     } else {
       // Create Show
@@ -89,7 +86,6 @@ const createShow = async (req, res) => {
       res.send("Ok");
     }
   } catch (err) {
-    console.log(err);
     res.send(err);
   }
 };
@@ -97,17 +93,14 @@ const createShow = async (req, res) => {
 const deleteShow = async (req, res) => {
   const user = req.user;
   const apiId = req.params.id;
-  console.log(user);
-  console.log(user.shows);
 
   try {
     const show = await Show.findOne({ apiId: apiId, user: req.user._id });
 
-    console.log(show._id);
     user.shows = user.shows.filter(
       (showId) => showId.toString() !== show._id.toString()
     );
-    console.log(user.shows);
+
     await show.remove();
     await user.save();
 

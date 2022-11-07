@@ -9,7 +9,7 @@ const loginCheck = (passport) => {
       User.findOne({ email: email.toLowerCase() })
         .then((user) => {
           if (!user) {
-            console.log("wrong email");
+            // console.log("wrong email");
             return done();
           }
 
@@ -19,7 +19,7 @@ const loginCheck = (passport) => {
             if (isMatch) {
               return done(null, user);
             } else {
-              console.log("Wrong password");
+              // console.log("Wrong password");
               return done();
             }
           });

@@ -14,48 +14,48 @@
   </head>
 
   <body>
-      <%- include("nav.ejs"); %>
-      <section>
-        <p>
-          Your watchlist is empty! Click on the
-          <i class="fa-solid fa-magnifying-glass"></i> to add some shows
-        </p>
-        <ul id="shows-info">
-          <% shows.forEach(show => { %>
-          <li>
-            <img src="<%= show.image.medium %>" alt="show poster" />
-            <div class="show-info">
-              <span class="show-name"><%= show.name %></span>
-              <span class="show-status"
-                >Status: <% if (show.status == "Running") { %>
-                <span class="running"><%= show.status.toUpperCase() %></span>
-                <% } else { %>
-                <span class="ended"><%= show.status.toUpperCase() %></span>
-                <% } %>
-              </span>
-              <% if (show._links.nextepisode) { %>
-              <span class="next-episode"
-                >Next Episode: <%= show._links.nextepisode.name %></span
-              >
-              <span class="airtime" id="airtime"
-                >Airing:
-                <span><%= show._links.nextepisode.airstamp %></span></span
-              >
+    <%- include("nav.ejs"); %>
+    <section>
+      <p>
+        Your watchlist is empty! Click on the
+        <i class="fa-solid fa-magnifying-glass"></i> to add some shows
+      </p>
+      <ul id="shows-info">
+        <% shows.forEach(show => { %>
+        <li>
+          <img src="<%= show.image.medium %>" alt="show poster" />
+          <div class="show-info">
+            <span class="show-name"><%= show.name %></span>
+            <span class="show-status"
+              >Status: <% if (show.status == "Running") { %>
+              <span class="running"><%= show.status.toUpperCase() %></span>
               <% } else { %>
-              <span class="next-episode"
-                >Last Episode: <%= show._links.previousepisode.name %></span
-              >
-              <span class="airtime" id="airtime"
-                >Airing:
-                <span><%= show._links.previousepisode.airstamp %></span></span
-              >
+              <span class="ended"><%= show.status.toUpperCase() %></span>
               <% } %>
-              <a href="/shows/remove/<%= show.id %>">remove</a>
-            </div>
-          </li>
-          <% }) %>
-        </ul>
-      </section>
+            </span>
+            <% if (show._links.nextepisode) { %>
+            <span class="next-episode"
+              >Next Episode: <%= show._links.nextepisode.name %></span
+            >
+            <span class="airtime" id="airtime"
+              >Airing:
+              <span><%= show._links.nextepisode.airstamp %></span></span
+            >
+            <% } else { %>
+            <span class="next-episode"
+              >Last Episode: <%= show._links.previousepisode.name %></span
+            >
+            <span class="airtime" id="airtime"
+              >Aired:
+              <span><%= show._links.previousepisode.airstamp %></span></span
+            >
+            <% } %>
+            <a href="/shows/remove/<%= show.id %>">remove</a>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+    </section>
     <script
       type="application/javascript"
       src="../static/javascripts/watchlist.js"
