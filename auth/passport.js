@@ -6,7 +6,7 @@ const loginCheck = (passport) => {
   passport.use(
     new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
       //Check customer
-      User.findOne({ email: email })
+      User.findOne({ email: email.toLowerCase() })
         .then((user) => {
           if (!user) {
             console.log("wrong email");
@@ -14,8 +14,8 @@ const loginCheck = (passport) => {
           }
 
           //Match Password
-          bcrypt.compare(password, user.password, (error, isMatch) => {
-            if (error) throw error;
+          bcrypt.compare(password, user.password, (err, isMatch) => {
+            if (err) throw err;
             if (isMatch) {
               return done(null, user);
             } else {
@@ -24,7 +24,9 @@ const loginCheck = (passport) => {
             }
           });
         })
-        .catch((error) => console.log("error"));
+        .catch((err) => {
+          throw err;
+        });
     })
   );
   passport.serializeUser((user, done) => {

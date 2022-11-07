@@ -30,7 +30,7 @@ const registerUser = (req, res) => {
       err: "Password must match",
     });
   } else {
-    User.findOne({ email: email }).then((user) => {
+    User.findOne({ email: email.toLowerCase() }).then((user) => {
       if (user) {
         res.render("register", {
           username,
@@ -44,7 +44,7 @@ const registerUser = (req, res) => {
       // Create new user
       const newUser = new User({
         username,
-        email,
+        email: email.toLowerCase(),
         password,
       });
 

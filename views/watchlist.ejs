@@ -16,6 +16,10 @@
   <body>
       <%- include("nav.ejs"); %>
       <section>
+        <p>
+          Your watchlist is empty! Click on the
+          <i class="fa-solid fa-magnifying-glass"></i> to add some shows
+        </p>
         <ul id="shows-info">
           <% shows.forEach(show => { %>
           <li>
