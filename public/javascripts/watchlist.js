@@ -18,6 +18,11 @@ if (listItems.length > 0) {
     ];
 
     const span = li.children[1].querySelector("#airtime").children[0];
+    if (span.textContent === "TBA") {
+      return;
+    }
+    console.log(span);
+
     const airTime = new Date(span.textContent);
     const dateString = `${airTime.getUTCDate()} ${
       months[airTime.getUTCMonth()]
