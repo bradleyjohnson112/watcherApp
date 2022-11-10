@@ -4,7 +4,8 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   background-color: #d9534f;
   color: rgb(41, 43, 44);
   font-size: 16px;
@@ -41,7 +42,7 @@ nav i {
 
 button {
   display: block;
-  padding: 0.75rem; 
+  padding: 0.75rem;
   font-size: 1.3rem;
   text-transform: capitalize;
   background-color: #d9534f;
@@ -71,7 +72,7 @@ section ul li {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 1.5rem 1.3rem;
   border-radius: 0.75rem;
   margin-bottom: 1.75rem;
@@ -112,11 +113,9 @@ section .show-info span {
   color: #5cb85c;
 }
 
-.show-status .ended {
+.show-status .ended {}
 
-}
-
-.show-info .next-episode {
+.show-info .episode {
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
@@ -129,7 +128,7 @@ section .show-info span {
 .show-info a {
   text-decoration: none;
   display: inline-block;
-  padding: 0.5rem; 
+  padding: 0.5rem;
   font-size: 1rem;
   text-transform: capitalize;
   background-color: #0275d8;
@@ -145,16 +144,13 @@ section p {
 }
 
 @media screen and (max-width: 767px) {
-  section ul li {
-  }
+  section ul li {}
 }
 
 @media screen and (min-width: 768px) and (max-width: 1253px) {
-  .content .show-info {
-  }
+  .content .show-info {}
 
-  .content .show-info span {
-  }
+  .content .show-info span {}
 
   .show-info .show-name {
     font-size: 1.3rem;
@@ -166,10 +162,9 @@ section p {
     margin-bottom: 0.75rem;
   }
 
-  .show-info .show-status span {
-  }
+  .show-info .show-status span {}
 
-  .show-info .next-episode {
+  .show-info .episode {
     font-size: 1.150rem;
     margin-bottom: 0.75rem;
   }
@@ -201,12 +196,9 @@ section p {
     height: auto;
   }
 
-  section .show-info {
+  section .show-info {}
 
-  }
-
-  section .show-info span {
-  }
+  section .show-info span {}
 
   .show-info .show-name {
     font-size: 1.5rem;
@@ -218,10 +210,9 @@ section p {
     margin-bottom: 1rem;
   }
 
-  .show-info .show-status span {
-  }
+  .show-info .show-status span {}
 
-  .show-info .next-episode {
+  .show-info .episode {
     font-size: 1.2rem;
     margin-bottom: 1rem;
   }

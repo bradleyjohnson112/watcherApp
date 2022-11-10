@@ -1,7 +1,6 @@
 const express = require("express");
 const {
   watchlistView,
-  getAllShows,
   deleteShow,
 } = require("../controllers/showsController");
 const { protectRoute } = require("../auth/protect");

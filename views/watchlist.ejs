@@ -20,49 +20,12 @@
         Your watchlist is empty! Click on the
         <i class="fa-solid fa-magnifying-glass"></i> to add some shows
       </p>
-      <ul id="shows-info">
-        <% shows.forEach((show) => { %>
-        <li>
-          <% if (show.image !== null) { %>
-          <img src="<%= show.image.medium %>" alt="show poster" />
-          <% } else { %>
-          <img src="../static/images/noimg.jpg" alt="show poster" />
-          <% } %>
-          <div class="show-info">
-            <span class="show-name"><%= show.name %></span>
-            <span class="show-status"
-              >Status: <% if (show.status == "Running") { %>
-              <span class="running"><%= show.status.toUpperCase() %></span>
-              <% } else { %>
-              <span class="ended"><%= show.status.toUpperCase() %></span>
-              <% } %>
-            </span>
-            <% if (show._links.nextepisode) { %>
-            <span class="next-episode"
-              >Next Episode: <%= show._links.nextepisode.name %></span
-            >
-            <span class="airtime" id="airtime"
-              >Airing:
-              <span><%= show._links.nextepisode.airstamp %></span></span
-            >
-            <% } else if (show._links.previousepisode) { %>
-            <span class="next-episode"
-              >Last Episode: <%= show._links.previousepisode.name %></span
-            >
-            <span class="airtime" id="airtime"
-              >Aired:
-              <span><%= show._links.previousepisode.airstamp %></span></span
-            >
-            <% } else { %>
-            <span class="next-episode">Episode information not avaliable</span>
-            <span class="airtime" id="airtime">Airing: <span>TBA</span></span>
-            <% } %>
-            <a href="/shows/remove/<%= show.id %>">remove</a>
-          </div>
-        </li>
-        <% }) %>
+      <ul id="shows-list">
       </ul>
     </section>
+    <script>
+      const showData = '<%- JSON.stringify(user.shows) %>';
+    </script>
     <script
       type="application/javascript"
       src="../static/javascripts/watchlist.js"

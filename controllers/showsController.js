@@ -11,7 +11,8 @@ const searchView = async (req, res) => {
 
 // Watchlist view
 const watchlistView = async (req, res) => {
-  getAllShows(req, res);
+  const user = await User.findById(req.user._id).populate("shows");
+  res.render("watchlist", { user: user });
 };
 
 // Profile view
@@ -19,49 +20,11 @@ const profileView = (req, res) => {
   res.render("profile");
 };
 
-// Get all shows
-const getAllShows = async (req, res) => {
-  const user = await User.findById(req.user._id).populate("shows");
-  let shows = user.shows;
-
-  const showRequests = [];
-  for (let i = 0; i < shows.length; i++) {
-    const url = `https://api.tvmaze.com/shows/${shows[i].apiId}`;
-    const req = axios.get(url);
-    showRequests.push(req);
-  }
-
-  Promise.all(showRequests)
-    .then((responses) => {
-      shows = responses.map((res) => res.data);
-      const showLinksRequests = [];
-      for (let i = 0; i < shows.length; i++) {
-        const keys = Object.keys(shows[i]._links);
-        for (let y = 0; y < keys.length; y++) {
-          if (keys[y] !== "self") {
-            const url = shows[i]._links[keys[y]].href;
-            const req = axios.get(url).then((res) => {
-              shows[i]._links[keys[y]] = res.data;
-            });
-
-            showLinksRequests.push(req);
-          }
-        }
-      }
-
-      return Promise.all(showLinksRequests);
-    })
-    .then(() => {
-      res.render("watchlist", { user: req.user, shows: shows });
-    });
-};
-
 // Post request that handles creating a show
 const createShow = async (req, res) => {
   try {
     // Get current user
     const user = req.user;
-    console.log(user);
 
     // Get show
     const { title, apiId } = req.body;
@@ -115,6 +78,5 @@ module.exports = {
   watchlistView,
   profileView,
   createShow,
-  getAllShows,
   deleteShow,
 };
